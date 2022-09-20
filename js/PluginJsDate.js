@@ -9,6 +9,7 @@ function PluginJsDate(){
   this.data.yy = null;
   this.data.separator = '-';
   this.set_date = function(){
+    this.data.date = new Date()
     this.data.d = this.data.date.getDate();
     if(this.data.d<10){
       this.data.dd = `0${this.data.d}`;
@@ -30,9 +31,11 @@ function PluginJsDate(){
   }
   this.set_date();
   this.get_date_yy_mm_dd = function(){
+    this.set_date();
     return this.data.yy+this.data.separator+this.data.mm+this.data.separator+this.data.dd;
   }
   this.get_date_y_mm_dd = function(){
+    this.set_date();
     return this.data.y+this.data.separator+this.data.mm+this.data.separator+this.data.dd;
   }
 }
